@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
-
-const routes: Routes = [];
+const routes: Routes = [
+  { path: '', redirectTo: 'cdk', pathMatch: 'full' },
+  { path: 'cdk', loadChildren: () => import('./cdk/cdk.module').then(m => m.CdkModule) },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
