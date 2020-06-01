@@ -1,17 +1,19 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-
+import { CoreModule } from '../core/core.module';
 import { CdkRoutingModule } from './cdk-routing.module';
 import { CdkComponent } from './cdk.component';
-import { CoreModule } from '../core/core.module';
+import { FocusTrapComponent } from './focus-trap/focus-trap.component';
+
 
 
 @NgModule({
-  declarations: [CdkComponent],
+  declarations: [
+    CdkComponent,
+    FocusTrapComponent
+  ],
   imports: [
-    CommonModule,
-    CdkRoutingModule,
-    CoreModule
+    CoreModule,
+    CdkRoutingModule
   ]
 })
 export class CdkModule { }

@@ -1,15 +1,24 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { BackComponent } from './back/back.component';
-
-const COMPONENTS = [
-    BackComponent,
-];
+import { A11yModule } from '@angular/cdk/a11y';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
-    declarations: [...COMPONENTS],
-    imports: [ CommonModule ],
-    exports: [...COMPONENTS],
+    declarations: [
+        BackComponent
+    ],
+    imports: [
+        CommonModule,
+        A11yModule,
+        MatListModule
+    ],
+    exports: [
+        BackComponent,
+        CommonModule,
+        A11yModule,
+        MatListModule
+    ],
     providers: [],
 })
-export class CoreModule {}
+export class CoreModule { }
