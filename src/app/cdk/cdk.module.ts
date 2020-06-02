@@ -6,6 +6,7 @@ import { FocusTrapComponent } from './focus-trap/focus-trap.component';
 import { FocusKeyManagerComponent, ListItemComponent } from './focus-key-manager/focus-key-manager.component';
 import { FocusMonitorComponent } from './focus-monitor/focus-monitor.component';
 import { FocusMonitorViaComponent } from './focus-monitor-via/focus-monitor-via.component';
+import { FocusMonitorDirectiveComponent } from './focus-monitor-directive/focus-monitor-directive.component';
 
 
 
@@ -16,7 +17,8 @@ import { FocusMonitorViaComponent } from './focus-monitor-via/focus-monitor-via.
     FocusKeyManagerComponent,
     ListItemComponent,
     FocusMonitorComponent,
-    FocusMonitorViaComponent
+    FocusMonitorViaComponent,
+    FocusMonitorDirectiveComponent
   ],
   imports: [
     CoreModule,

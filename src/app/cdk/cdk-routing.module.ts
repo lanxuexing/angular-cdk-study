@@ -6,6 +6,7 @@ import { FocusTrapComponent } from './focus-trap/focus-trap.component';
 import { FocusKeyManagerComponent } from './focus-key-manager/focus-key-manager.component';
 import { FocusMonitorComponent } from './focus-monitor/focus-monitor.component';
 import { FocusMonitorViaComponent } from './focus-monitor-via/focus-monitor-via.component';
+import { FocusMonitorDirectiveComponent } from './focus-monitor-directive/focus-monitor-directive.component';
 
 const routes: Routes = [
   { path: '', component: CdkComponent },
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'focus-key-manager', component: FocusKeyManagerComponent },
   { path: 'focus-monitor', component: FocusMonitorComponent },
   { path: 'focus-monitor-via', component: FocusMonitorViaComponent },
+  { path: 'focus-monitor-directive', component: FocusMonitorDirectiveComponent },
 ];
 
 @NgModule({
