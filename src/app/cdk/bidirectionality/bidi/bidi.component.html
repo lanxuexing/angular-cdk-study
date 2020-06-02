@@ -1,0 +1,9 @@
+<app-base>
+    <div class="container" [dir]="'rtl'">
+        <h4>this is a angualr cdk bidi directive</h4>
+    </div>
+    <div class="container">
+        <button mat-stroked-button (click)="changeDir()">change dir</button>
+        <h4 [dir]="isRtl ? 'rtl' : 'ltr'">this is a angualr cdk bidi directionality</h4>
+    </div>
+</app-base>

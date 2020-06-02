@@ -7,6 +7,7 @@ import { FocusKeyManagerComponent, ListItemComponent } from './accessibility/foc
 import { FocusMonitorComponent } from './accessibility/focus-monitor/focus-monitor.component';
 import { FocusMonitorViaComponent } from './accessibility/focus-monitor-via/focus-monitor-via.component';
 import { FocusMonitorDirectiveComponent } from './accessibility/focus-monitor-directive/focus-monitor-directive.component';
+import { BidiComponent } from './bidirectionality/bidi/bidi.component';
 
 
 
@@ -18,7 +19,8 @@ import { FocusMonitorDirectiveComponent } from './accessibility/focus-monitor-di
     ListItemComponent,
     FocusMonitorComponent,
     FocusMonitorViaComponent,
-    FocusMonitorDirectiveComponent
+    FocusMonitorDirectiveComponent,
+    BidiComponent
   ],
   imports: [
     CoreModule,

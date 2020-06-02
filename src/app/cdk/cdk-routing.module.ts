@@ -7,6 +7,7 @@ import { FocusKeyManagerComponent } from './accessibility/focus-key-manager/focu
 import { FocusMonitorComponent } from './accessibility/focus-monitor/focus-monitor.component';
 import { FocusMonitorViaComponent } from './accessibility/focus-monitor-via/focus-monitor-via.component';
 import { FocusMonitorDirectiveComponent } from './accessibility/focus-monitor-directive/focus-monitor-directive.component';
+import { BidiComponent } from './bidirectionality/bidi/bidi.component';
 
 const routes: Routes = [
   { path: '', component: CdkComponent },
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'focus-monitor', component: FocusMonitorComponent },
   { path: 'focus-monitor-via', component: FocusMonitorViaComponent },
   { path: 'focus-monitor-directive', component: FocusMonitorDirectiveComponent },
+  { path: 'bidi', component: BidiComponent },
 ];
 
 @NgModule({
