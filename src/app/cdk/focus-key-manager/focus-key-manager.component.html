@@ -1,9 +1,0 @@
-<div tabindex="0" (keydown)="keyManager.onKeydown($event)" class="list container">
-    <app-list-item
-        *ngFor="let i of [0, 1, 2, 3, 4]"
-        [disabled]="i === 3">
-        Item {{ i }}
-    </app-list-item>
-</div>
-
-<app-back></app-back>

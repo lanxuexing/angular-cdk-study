@@ -4,9 +4,11 @@ import { BackComponent } from './back/back.component';
 import { A11yModule } from '@angular/cdk/a11y';
 import { MatListModule } from '@angular/material/list';
 import { MatSelectModule } from '@angular/material/select';
+import { BaseComponent } from './base/base.component';
 
 @NgModule({
     declarations: [
+        BaseComponent,
         BackComponent
     ],
     imports: [
@@ -16,6 +18,7 @@ import { MatSelectModule } from '@angular/material/select';
         MatSelectModule
     ],
     exports: [
+        BaseComponent,
         BackComponent,
         CommonModule,
         A11yModule,
