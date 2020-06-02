@@ -53,10 +53,16 @@ export class FocusKeyManagerComponent implements AfterViewInit {
 
   constructor() { }
 
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
     // step2: 初始化ListKyeManager，并传入这些选项（PS：FocusKeyManager继承自ListKyeManager）
     this.keyManager = new FocusKeyManager<ListItemComponent>(this.items).withWrap();
     this.keyManager.setFirstItemActive();
+  }
+
+  // 根据传入的键事件设置活动项目，其中参数是键盘事件，用于确定哪个元素应该处于活动状态
+  handleKeyEvent(event: KeyboardEvent): void {
+    // step3: 把键盘事件从被管理的组件转发到 ListKeyManager
+    this.keyManager.onKeydown(event);
   }
 
 }
