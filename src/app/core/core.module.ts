@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { BackComponent } from './back/back.component';
 import { A11yModule } from '@angular/cdk/a11y';
 import { MatListModule } from '@angular/material/list';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
     declarations: [
@@ -11,13 +12,15 @@ import { MatListModule } from '@angular/material/list';
     imports: [
         CommonModule,
         A11yModule,
-        MatListModule
+        MatListModule,
+        MatSelectModule
     ],
     exports: [
         BackComponent,
         CommonModule,
         A11yModule,
-        MatListModule
+        MatListModule,
+        MatSelectModule
     ],
     providers: [],
 })
