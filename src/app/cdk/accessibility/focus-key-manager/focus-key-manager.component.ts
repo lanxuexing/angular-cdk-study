@@ -1,4 +1,4 @@
-import { FocusKeyManager } from '@angular/cdk/a11y';
+import { FocusKeyManager, FocusableOption } from '@angular/cdk/a11y';
 import { AfterViewInit, Component, ElementRef, Input, QueryList, ViewChildren } from '@angular/core';
 
 @Component({
@@ -27,7 +27,7 @@ import { AfterViewInit, Component, ElementRef, Input, QueryList, ViewChildren } 
     `
   ]
 })
-export class ListItemComponent {
+export class ListItemComponent implements FocusableOption {
   @Input() disabled: boolean;
 
   constructor(
@@ -37,6 +37,7 @@ export class ListItemComponent {
   focus() {
     this.elementRef.nativeElement.focus();
   }
+
 }
 
 
