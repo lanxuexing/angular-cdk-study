@@ -1,4 +1,4 @@
-import { FocusMonitor, FocusOrigin } from '@angular/cdk/a11y';
+import { FocusOrigin } from '@angular/cdk/a11y';
 import { ChangeDetectorRef, Component, NgZone } from '@angular/core';
 
 @Component({
@@ -11,11 +11,15 @@ export class FocusMonitorDirectiveComponent {
   subtreeOrigin = this.formatOrigin(null);
 
   constructor(
-    private focusMonitor: FocusMonitor,
     private ngZone: NgZone,
     private cdr: ChangeDetectorRef
   ) { }
 
+  /**
+   * CDK a11y FocusMonitor指令，可以监控某个元素。cdkMonitorElementFocus 相当于在 checkChildren 为 false 的宿主元素上调用 monitor。
+   * cdkMonitorSubtreeFocus 相当于在 checkChildren 为 true 的宿主元素上调用 monitor。这两个指令都有一个 @Output() cdkFocusChange，
+   * 每当它发生变化时都会通过该事件发出新的 FocusOrigin。
+   */
   formatOrigin(origin: FocusOrigin): string {
     return origin ? origin + ' focused' : 'blurred';
   }
