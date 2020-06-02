@@ -4,11 +4,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { CdkComponent } from './cdk.component';
 import { FocusTrapComponent } from './focus-trap/focus-trap.component';
 import { FocusKeyManagerComponent } from './focus-key-manager/focus-key-manager.component';
+import { FocusMonitorComponent } from './focus-monitor/focus-monitor.component';
 
 const routes: Routes = [
   { path: '', component: CdkComponent },
   { path: 'focus-trap', component: FocusTrapComponent },
-  { path: 'focus-key-manager', component: FocusKeyManagerComponent }
+  { path: 'focus-key-manager', component: FocusKeyManagerComponent },
+  { path: 'focus-monitor', component: FocusMonitorComponent },
 ];
 
 @NgModule({

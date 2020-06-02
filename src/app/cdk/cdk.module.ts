@@ -4,6 +4,7 @@ import { CdkRoutingModule } from './cdk-routing.module';
 import { CdkComponent } from './cdk.component';
 import { FocusTrapComponent } from './focus-trap/focus-trap.component';
 import { FocusKeyManagerComponent, ListItemComponent } from './focus-key-manager/focus-key-manager.component';
+import { FocusMonitorComponent } from './focus-monitor/focus-monitor.component';
 
 
 
@@ -12,7 +13,8 @@ import { FocusKeyManagerComponent, ListItemComponent } from './focus-key-manager
     CdkComponent,
     FocusTrapComponent,
     FocusKeyManagerComponent,
-    ListItemComponent
+    ListItemComponent,
+    FocusMonitorComponent
   ],
   imports: [
     CoreModule,
