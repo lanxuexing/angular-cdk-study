@@ -8,6 +8,7 @@ import { FocusMonitorComponent } from './accessibility/focus-monitor/focus-monit
 import { FocusMonitorViaComponent } from './accessibility/focus-monitor-via/focus-monitor-via.component';
 import { FocusMonitorDirectiveComponent } from './accessibility/focus-monitor-directive/focus-monitor-directive.component';
 import { BidiComponent } from './bidirectionality/bidi/bidi.component';
+import { CopyComponent } from './clipboard/clipboard/copycomponent';
 
 const routes: Routes = [
   { path: '', component: CdkComponent },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'focus-monitor-via', component: FocusMonitorViaComponent },
   { path: 'focus-monitor-directive', component: FocusMonitorDirectiveComponent },
   { path: 'bidi', component: BidiComponent },
+  { path: 'clipboard', component: CopyComponent },
 ];
 
 @NgModule({

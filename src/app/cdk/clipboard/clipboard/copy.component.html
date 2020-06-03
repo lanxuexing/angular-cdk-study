@@ -1,0 +1,7 @@
+<app-base>
+    <label for="clipboard-example-textarea">Text to be copied</label>
+    <textarea id="clipboard-example-textarea" cols="30" rows="10" [(ngModel)]="value"></textarea>
+    <button mat-stroked-button [cdkCopyToClipboard]="value">Copy to clipboard</button>
+    <button mat-stroked-button (click)="copy()" color="warn" style="margin-left: 10px;">Click Copy to clipboard</button>
+    <button mat-stroked-button (click)="copyLongText()" color="primary" style="margin-left: 10px;">Copy long text to clipboard</button>
+</app-base>
