@@ -9,6 +9,7 @@ import { FocusMonitorViaComponent } from './accessibility/focus-monitor-via/focu
 import { FocusMonitorDirectiveComponent } from './accessibility/focus-monitor-directive/focus-monitor-directive.component';
 import { BidiComponent } from './bidirectionality/bidi/bidi.component';
 import { CopyComponent } from './clipboard/clipboard/copycomponent';
+import { TestComponent } from './bidirectionality/test/test.component';
 
 
 
@@ -22,7 +23,8 @@ import { CopyComponent } from './clipboard/clipboard/copycomponent';
     FocusMonitorViaComponent,
     FocusMonitorDirectiveComponent,
     BidiComponent,
-    CopyComponent
+    CopyComponent,
+    TestComponent
   ],
   imports: [
     CoreModule,

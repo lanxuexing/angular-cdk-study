@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { Directionality, Direction } from '@angular/cdk/bidi';
 import { Subscription } from 'rxjs';
 
@@ -7,9 +7,8 @@ import { Subscription } from 'rxjs';
   templateUrl: './bidi.component.html',
   styleUrls: ['./bidi.component.scss']
 })
-export class BidiComponent implements OnInit, OnDestroy {
+export class BidiComponent implements OnInit {
   public isRtl: boolean;
-  private dirChangeSubscription = Subscription.EMPTY;
 
   constructor(
     public dir: Directionality
@@ -17,15 +16,14 @@ export class BidiComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.isRtl = this.dir.value === 'rtl';
-    this.dirChangeSubscription = this.dir.change.subscribe((ret: Direction) => console.log('Dir变化了: ', ret));
   }
 
   changeDir(): void {
     this.isRtl = !this.isRtl;
   }
 
-  ngOnDestroy(): void {
-    this.dirChangeSubscription.unsubscribe();
+  change(event: Direction): void {
+    console.log('Dir变化: ', event);
   }
 
 }

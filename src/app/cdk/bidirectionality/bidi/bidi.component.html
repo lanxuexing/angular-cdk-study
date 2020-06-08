@@ -4,6 +4,9 @@
     </div>
     <div class="container">
         <button mat-stroked-button (click)="changeDir()">change dir</button>
-        <h4 [dir]="isRtl ? 'rtl' : 'ltr'">this is a angualr cdk bidi directionality</h4>
+        <h4 [dir]="isRtl ? 'rtl' : 'ltr'" (dirChange)="change($event)">
+            this is a angualr cdk bidi directionality
+            <app-test></app-test>
+        </h4>
     </div>
 </app-base>
