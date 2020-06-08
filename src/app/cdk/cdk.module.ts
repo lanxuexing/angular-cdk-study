@@ -10,6 +10,7 @@ import { FocusMonitorDirectiveComponent } from './accessibility/focus-monitor-di
 import { BidiComponent } from './bidirectionality/bidi/bidi.component';
 import { CopyComponent } from './clipboard/clipboard/copycomponent';
 import { TestComponent } from './bidirectionality/test/test.component';
+import { BreakPointComponent } from './layout/break-point/break-point.component';
 
 
 
@@ -24,7 +25,8 @@ import { TestComponent } from './bidirectionality/test/test.component';
     FocusMonitorDirectiveComponent,
     BidiComponent,
     CopyComponent,
-    TestComponent
+    TestComponent,
+    BreakPointComponent
   ],
   imports: [
     CoreModule,
