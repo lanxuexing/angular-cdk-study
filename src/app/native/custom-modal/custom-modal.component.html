@@ -1,0 +1,12 @@
+<app-base>
+    <div class="container">
+        <button mat-stroked-button color="warn" (click)="openStringModal()">字符串</button>
+        <button mat-stroked-button color="warn" (click)="openComponentModal()">组件</button>
+        <button mat-stroked-button color="warn" (click)="openTemplateModal()">模版</button>
+    </div>
+</app-base>
+
+<ng-template #tpl>
+    <h1>Login</h1>
+    <button (click)="click()">Submit</button>
+</ng-template>

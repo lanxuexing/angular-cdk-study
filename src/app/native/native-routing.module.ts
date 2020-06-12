@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ModalComponent } from './modal/modal.component';
+import { CustomModalComponent } from './custom-modal/custom-modal.component';
 import { NativeComponent } from './native.component';
 
 
 const routes: Routes = [
   { path: '', component: NativeComponent },
-  { path: 'modal', component: ModalComponent },
+  { path: 'custom-modal', component: CustomModalComponent },
 ];
 
 @NgModule({

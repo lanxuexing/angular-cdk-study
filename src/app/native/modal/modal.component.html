@@ -1,4 +1,9 @@
-<app-base>
-    <p>modal works!</p>
-</app-base>
-
+<div class="modal-container">
+    <div class="modal-backdrop" (click)="dismiss($event)"></div>
+    <div class="modal-body">
+        <ng-content></ng-content>
+        <footer class="modal-footer">
+            <ng-content></ng-content>
+        </footer>
+    </div>
+</div>
