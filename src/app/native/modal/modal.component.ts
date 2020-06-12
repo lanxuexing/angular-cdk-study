@@ -1,5 +1,5 @@
-import { Component, Inject } from '@angular/core';
-import { ModalService, MODAL_CONTAINER_DATA } from './modal.service';
+import { Component, EventEmitter, Inject, Output } from '@angular/core';
+import { MODAL_CONTAINER_DATA } from './modal.conf';
 
 @Component({
   selector: 'app-modal',
@@ -7,18 +7,18 @@ import { ModalService, MODAL_CONTAINER_DATA } from './modal.service';
   styleUrls: ['./modal.component.scss']
 })
 export class ModalComponent {
+  @Output() dissmiss = new EventEmitter<void>();
 
   constructor(
-    private modalService: ModalService,
     @Inject(MODAL_CONTAINER_DATA) public data: any
   ) {
     console.log('传过来的数据: ', this.data);
   }
 
-  dismiss(event: Event) {
+  handleDismiss(event: Event) {
     event.preventDefault();
     event.stopPropagation();
-    this.modalService.close();
+    this.dissmiss.emit();
   }
 
 }
