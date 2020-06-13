@@ -4,7 +4,7 @@
         <button mat-stroked-button color="warn" (click)="openComponentModal()">组件</button>
         <button mat-stroked-button color="warn" (click)="openTemplateModal()">模版</button>
     </div>
-    <app-rate [model]="4"></app-rate>
+    <app-rate [type]="'warning'" [(ngModel)]="star"></app-rate>
 </app-base>
 
 <ng-template #tpl>

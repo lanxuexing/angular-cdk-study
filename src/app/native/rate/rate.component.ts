@@ -1,143 +1,124 @@
-import { Component, ElementRef, OnInit, ViewChild, Renderer2, forwardRef, Input, Output, EventEmitter } from '@angular/core';
-import { SafeStyle, DomSanitizer } from '@angular/platform-browser';
+import { Component, forwardRef, Input, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 
-export class RateProps {
-  @Input() set disabled(val: boolean) {
-    console.warn('Element Angular: (disabled) is discarded, use [elDisabled] replace it.');
-  }
-  @Input() elDisabled = false;
-  @Input() max = 5;
-  @Input() colors: string[] = ['#F7BA2A', '#F7BA2A', '#F7BA2A'];
-  @Input() voidColor = '#C6D1DE';
-  @Input() iconClasses: string[] = ['el-icon-star-on', 'el-icon-star-on', 'el-icon-star-on'];
-  @Input() voidIconClass = 'el-icon-star-off';
-  @Input() disabledVoidColor = '#EFF2F7';
-  @Input() disabledVoidIconClass = 'el-icon-star-on';
-  @Input() lowThreshold = 2;
-  @Input() highThreshold = 4;
-  @Input() showText = false;
-  @Input() textColor = '#1F2D3D';
-  @Input() texts: string[] = ['极差', '失望', '一般', '满意', '惊喜'];
-  @Input() model = 0;
-  @Output() modelChange: EventEmitter<any> = new EventEmitter<any>();
-}
-
-
-export type RateMapItem = {
-  color: string,
-  class: string
-};
-
-
-export type RateMap = {
-  low: RateMapItem,
-  high: RateMapItem,
-  medium: RateMapItem,
-  void: RateMapItem,
-  elDisabled: RateMapItem,
-};
-
-
+/**
+ * 例子：
+ * 1. <app-rate [(ngModel)]="value" [count]="5"></app-rate>
+ * 2. <app-rate [(ngModel)]="value" [count]="5" [character]="'好'" [color]="'#ffa500'"></app-rate>
+ */
 @Component({
   selector: 'app-rate',
   templateUrl: './rate.component.html',
   styleUrls: ['./rate.component.scss'],
-  providers: [{
-    provide: NG_VALUE_ACCESSOR,
-    useExisting: forwardRef(() => RateComponent),
-    multi: true
-  }],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => RateComponent),
+      multi: true
+    }
+  ]
 })
-export class RateComponent extends RateProps implements OnInit, ControlValueAccessor {
-  @ViewChild('rateIcon') rateIcon: ElementRef;
-  scores: boolean[] = [];
-  rateMap: RateMap;
-  backupModel: number;
+export class RateComponent implements OnInit, ControlValueAccessor {
+  @Input() read = false; // 是否为只读模式
+  @Input() count = 5; // 总等级数
+  @Input() color = ''; // 星星颜色
+  @Input() icon = ''; // 评分图标的样式
+  @Input() character = ''; // 评分图标的样式，icon 与 character 只能设置其中一个
+  @Input() type: 'success' | 'warning' | 'error'; // 当前评分的类型，不同类型对应不同颜色
 
-  constructor(
-    private sanitizer: DomSanitizer,
-    private renderer: Renderer2
-  ) {
-    super();
-  }
 
-  // hover todo
-  hoverToggle({ srcElement }: Event, index?: number, reset: boolean = false): void {
-    if (this.elDisabled) {
-      return;
-    }
-    const iconElement: Element = (srcElement as any).tagName === 'I' ? srcElement : (srcElement as any).children[0];
-    if (reset) {
-      this.model = this.backupModel;
-      this.renderer.removeClass(iconElement, 'hover');
-    } else {
-      this.model = index;
-      this.renderer.addClass(iconElement, 'hover');
-    }
-  }
+  totalLevelArray = [];
+  chooseValue: number;
+  width = '';
+  onChange: (value: number) => void = () => null;
+  onTouched: () => void = () => null;
 
-  selectValue(index: number): void {
-    if (this.elDisabled) {
-      return;
-    }
-    this.model = this.backupModel = index;
-    this.modelChange.emit(index);
-    // tslint:disable-next-line:no-unused-expression
-    this.controlChange;
-  }
-
-  makeIconClasses(index: number): string {
-    const voidClass = this.elDisabled ? this.rateMap.elDisabled.class : this.rateMap.void.class;
-    const activeItem = this.findCurrentType(this.model, this.rateMap);
-    const classes = index <= this.model ? activeItem.class : voidClass;
-    return 'el-rate__icon ' + classes;
-  }
-
-  makeIconStyles(index: number): SafeStyle {
-    const voidColor = this.elDisabled ? this.rateMap.elDisabled.color : this.rateMap.void.color;
-    const activeItem = this.findCurrentType(this.model, this.rateMap);
-    const styles = `color: ${index <= this.model ? activeItem.color : voidColor};`;
-    return this.sanitizer.bypassSecurityTrustStyle(styles);
-  }
-
-  findCurrentType(index: number, rateMap: RateMap): RateMapItem {
-    if (index <= this.lowThreshold) {
-      return rateMap.low;
-    }
-    if (index >= this.highThreshold) {
-      return rateMap.high;
-    }
-    return rateMap.medium;
-  }
 
   ngOnInit(): void {
-    this.scores = new Array(this.max).fill('');
-    this.backupModel = this.model;
-
-    this.rateMap = {
-      low: { color: this.colors[0], class: this.iconClasses[0] },
-      medium: { color: this.colors[1], class: this.iconClasses[1] },
-      high: { color: this.colors[2], class: this.iconClasses[2] },
-      void: { color: this.voidColor, class: this.voidIconClass },
-      elDisabled: { color: this.disabledVoidColor, class: this.disabledVoidIconClass },
-    };
+    for (let i = 0; i < this.count; i++) {
+      this.totalLevelArray.push({ width: '0' });
+    }
   }
 
-  writeValue(value: any): void {
-    this.model = value;
+
+  // 只读模式配置
+  setStaticRating() {
+    const halfStar = this.chooseValue % 1;
+    const intCurrentLevel = Math.floor(this.chooseValue);
+    this.setChange(0, intCurrentLevel + 1, '100%');
+    if (halfStar > 0) {
+      this.totalLevelArray[intCurrentLevel + 1].width = halfStar * 100 + '%';
+      this.setChange(intCurrentLevel + 2, this.count, '0');
+    } else {
+      this.setChange(intCurrentLevel + 1, this.count, '0');
+    }
   }
 
-  registerOnChange(fn: any): void {
-    this.controlChange = fn;
+
+  // 动态模式配置
+  setDynamicRating() {
+    this.setChange(0, this.chooseValue + 1, '100%');
+    this.setChange(this.chooseValue + 1, this.count, '0');
   }
 
-  registerOnTouched(fn: any): void {
-    this.controlTouch = fn;
+
+  hoverToggle(event, index?: number, reset: boolean = false) {
+    if (this.read) {
+      return;
+    }
+    if (reset) {
+      if (this.chooseValue >= 0) {
+        this.setChange(0, this.chooseValue + 1, '100%');
+        this.setChange(this.chooseValue + 1, this.count, '0');
+      } else {
+        this.setChange(0, this.count, '0');
+      }
+    } else {
+      this.setChange(0, index + 1, '100%');
+      this.setChange(index + 1, this.count, '0');
+    }
   }
 
-  private controlChange = () => { };
-  private controlTouch = () => { };
+
+  // 根据mouseMove，mouseLeave,select等操作，改变颜色与是否选中
+  setChange(start, end, width) {
+    for (let i = start; i < end; i++) {
+      this.totalLevelArray[i].width = width;
+    }
+  }
+
+
+  selectValue(index) {
+    if (this.read) {
+      return;
+    }
+    this.setChange(0, index + 1, '100%');
+    this.setChange(index + 1, this.count, '0');
+    this.chooseValue = index;
+    this.onChange(index + 1);
+    this.onTouched();
+  }
+
+
+  registerOnChange(fn: (_: number) => void): void {
+    this.onChange = fn;
+  }
+
+
+  registerOnTouched(fn: () => void): void {
+    this.onTouched = fn;
+  }
+
+
+  writeValue(value: number | null): void {
+    this.chooseValue = value - 1;
+    if (this.read) {
+      this.setStaticRating();
+    } else {
+      this.setDynamicRating();
+    }
+  }
+
 
 }

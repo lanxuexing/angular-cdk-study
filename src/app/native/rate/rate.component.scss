@@ -1,42 +1,65 @@
-.el-rate__icon,
-.el-rate__item {
-    position: relative;
-    display: inline-block;
+.bling-star-align {
+  float: left;
+  font-size: 16px;
+  margin-right: 5px;
+  position: relative;
 }
-.el-rate {
-    height: 20px;
-    line-height: 1;
+
+.bling-pointer {
+  cursor: pointer;
 }
-.el-rate:active,
-.el-rate:focus {
-    outline-width: 0;
+
+.bling-star-container {
+  display: inline-block;
 }
-.el-rate__item {
-    font-size: 0;
-    vertical-align: middle;
+
+.bling-star-color-active {
+  color: #6a81ed;
+
+  svg g {
+    fill: #6a81ed;
+  }
 }
-.el-rate__icon {
-    font-size: 18px;
-    margin-right: 6px;
-    color: #b4bccc;
-    -webkit-transition: 0.3s;
-    transition: 0.3s;
+
+.bling-star-color-success {
+  color: #3dcca6;
+
+  svg g {
+    fill: #3dcca6;
+  }
 }
-.el-rate__decimal,
-.el-rate__icon .path2 {
-    position: absolute;
-    top: 0;
-    left: 0;
+
+.bling-star-color-warning {
+  color: #fac20a;
+
+  svg g {
+    fill: #fac20a;
+  }
 }
-.el-rate__icon.hover {
-    -webkit-transform: scale(1.15);
-    transform: scale(1.15);
+
+.bling-star-color-error {
+  color: #f66f6a;
+
+  svg g {
+    fill: #f66f6a;
+  }
 }
-.el-rate__decimal {
-    display: inline-block;
-    overflow: hidden;
+
+.bling-active-star {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
 }
-.el-rate__text {
-    font-size: 14px;
-    vertical-align: middle;
+
+.bling-star-color {
+  color: #dfe1e6;
+
+  svg g {
+    fill: #dfe1e6;
+  }
+}
+
+.bling-only-read {
+  cursor: not-allowed;
 }

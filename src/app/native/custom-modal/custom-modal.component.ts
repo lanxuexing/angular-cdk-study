@@ -9,6 +9,7 @@ import { BackComponent } from '../../core/back/back.component';
 })
 export class CustomModalComponent {
   @ViewChild('tpl') tpl: TemplateRef<any>;
+  star = 2;
 
   constructor(
     private modalService: ModalService
