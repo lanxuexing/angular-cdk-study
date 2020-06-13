@@ -21,6 +21,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 })
 export class RateComponent implements OnInit, ControlValueAccessor {
   @Input() read = false; // 是否为只读模式
+  @Input() hollow = false; // 是否为空心星星
   @Input() count = 5; // 总等级数
   @Input() color = ''; // 星星颜色
   @Input() icon = ''; // 评分图标的样式
@@ -33,6 +34,12 @@ export class RateComponent implements OnInit, ControlValueAccessor {
   width = '';
   onChange: (value: number) => void = () => null;
   onTouched: () => void = () => null;
+
+
+  // 获取空心星星stroke颜色
+  getHollowStarColor() {
+    return this.hollow ? `bling-hollow-star-color-active bling-hollow-star-color-${this.type}` : '';
+  }
 
 
   ngOnInit(): void {
