@@ -12,6 +12,7 @@ import { CopyComponent } from './clipboard/clipboard/copycomponent';
 import { TestComponent } from './bidirectionality/test/test.component';
 import { BreakPointComponent } from './layout/break-point/break-point.component';
 import { TemplatePortalComponent } from './portal/template-portal/template-portal.component';
+import { ComponentPortalComponent } from './portal/component-portal/component-portal.component';
 
 
 
@@ -28,7 +29,8 @@ import { TemplatePortalComponent } from './portal/template-portal/template-porta
     CopyComponent,
     TestComponent,
     BreakPointComponent,
-    TemplatePortalComponent
+    TemplatePortalComponent,
+    ComponentPortalComponent
   ],
   imports: [
     CoreModule,

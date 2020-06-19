@@ -1,0 +1,10 @@
+<app-base>
+    <div class="container">
+        <button mat-stroked-button (click)="switchComponentPortal(1)">静态切换ComponentPortal【1】</button>
+        <button mat-stroked-button (click)="switchComponentPortal(2)">动态切换ComponentPortal【2】</button>
+        <!-- PortalOutlet, 即插座 [静态] -->
+        <div [cdkPortalOutlet]="currentPortal"></div>
+        <!-- PortalOutlet, 即插座 [动态] -->
+        <div cdkPortalOutlet #portalOutlet="cdkPortalOutlet"></div>
+    </div>
+</app-base>

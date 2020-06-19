@@ -11,6 +11,7 @@ import { BidiComponent } from './bidirectionality/bidi/bidi.component';
 import { CopyComponent } from './clipboard/clipboard/copycomponent';
 import { BreakPointComponent } from './layout/break-point/break-point.component';
 import { TemplatePortalComponent } from './portal/template-portal/template-portal.component';
+import { ComponentPortalComponent } from './portal/component-portal/component-portal.component';
 
 const routes: Routes = [
   { path: '', component: CdkComponent },
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'clipboard', component: CopyComponent },
   { path: 'layout-break-point', component: BreakPointComponent },
   { path: 'portal-template', component: TemplatePortalComponent },
+  { path: 'portal-component', component: ComponentPortalComponent },
 ];
 
 @NgModule({
