@@ -10,6 +10,7 @@ import { FocusMonitorDirectiveComponent } from './accessibility/focus-monitor-di
 import { BidiComponent } from './bidirectionality/bidi/bidi.component';
 import { CopyComponent } from './clipboard/clipboard/copycomponent';
 import { BreakPointComponent } from './layout/break-point/break-point.component';
+import { TemplatePortalComponent } from './portal/template-portal/template-portal.component';
 
 const routes: Routes = [
   { path: '', component: CdkComponent },
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'bidi', component: BidiComponent },
   { path: 'clipboard', component: CopyComponent },
   { path: 'layout-break-point', component: BreakPointComponent },
+  { path: 'portal-template', component: TemplatePortalComponent },
 ];
 
 @NgModule({

@@ -1,0 +1,30 @@
+<app-base>
+    <div class="container">
+        <button mat-stroked-button (click)="switchTemplatePortal(1)">切换TemplatePortal【1】</button>
+        <button mat-stroked-button (click)="switchTemplatePortal(2)">切换TemplatePortal【2】</button>
+        <button mat-stroked-button (click)="switchTemplatePortal(3)">切换TemplatePortal【3】</button>
+        <!-- PortalOutlet, 即插座 -->
+        <div [cdkPortalOutlet]="currentPortal"></div>
+    </div>
+</app-base>
+
+
+<!-- Portal, 即插头: TemplatePortal 和 ComponentPortal 两种 -->
+
+<!-- 直接使用指令, 但是cdkPortal需要放在ng-template里  let-nameInTemplate="nameInObject" 相当于 let nameInTemplate = context.nameInObject -->
+<ng-template cdkPortal let-nameInTemplate="nameInObject">
+    <p>我是放在ng-template标签里的，使用cdkPortal指令进行声明～🎉 ➡️ ✅</p>
+    <p>接收到参数: {{ nameInTemplate }}</p>
+</ng-template>
+
+<!-- 使用语法糖, 其实和*ngIf一样的原理 -->
+<div *cdkPortal="let nameInTemplate = nameInObject">
+    <p>我是放在ng-template标签里的，使用cdkPortal语法糖进行声明～🎉🎉 ➡️ ✅ ✅</p>
+    <p>接收到参数: {{ nameInTemplate }}</p>
+</div>
+
+<!-- 不使用指令，直接使用模版 -->
+<ng-template #template let-nameInTemplate="nameInObject">
+    <p>我是直接写在ng-template标签里的～🍺</p>
+    <p>接收到参数: {{ nameInTemplate }}</p>
+</ng-template>

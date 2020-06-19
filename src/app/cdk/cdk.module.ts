@@ -11,6 +11,7 @@ import { BidiComponent } from './bidirectionality/bidi/bidi.component';
 import { CopyComponent } from './clipboard/clipboard/copycomponent';
 import { TestComponent } from './bidirectionality/test/test.component';
 import { BreakPointComponent } from './layout/break-point/break-point.component';
+import { TemplatePortalComponent } from './portal/template-portal/template-portal.component';
 
 
 
@@ -26,7 +27,8 @@ import { BreakPointComponent } from './layout/break-point/break-point.component'
     BidiComponent,
     CopyComponent,
     TestComponent,
-    BreakPointComponent
+    BreakPointComponent,
+    TemplatePortalComponent
   ],
   imports: [
     CoreModule,
