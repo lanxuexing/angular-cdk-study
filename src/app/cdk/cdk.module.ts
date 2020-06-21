@@ -13,6 +13,7 @@ import { TestComponent } from './bidirectionality/test/test.component';
 import { BreakPointComponent } from './layout/break-point/break-point.component';
 import { TemplatePortalComponent } from './portal/template-portal/template-portal.component';
 import { ComponentPortalComponent } from './portal/component-portal/component-portal.component';
+import { DomPortalComponent } from './portal/dom-portal/dom-portal.component';
 
 
 
@@ -30,7 +31,8 @@ import { ComponentPortalComponent } from './portal/component-portal/component-po
     TestComponent,
     BreakPointComponent,
     TemplatePortalComponent,
-    ComponentPortalComponent
+    ComponentPortalComponent,
+    DomPortalComponent
   ],
   imports: [
     CoreModule,

@@ -1,0 +1,16 @@
+<app-base>
+    <div class="container">
+        <button mat-stroked-button (click)="loadTemplatePortal()">挂载模版Portal到插座上【1】</button>
+        <button mat-stroked-button (click)="createPortalFromTemplate()">在App-Root之外创建Portal【template】【2】</button>
+        <!-- PortalOutlet, 即插座 -->
+        <div [cdkPortalOutlet]="currentPortal"></div>
+    </div>
+</app-base>
+
+<!-- Portal, 即插头: TemplatePortal 和 ComponentPortal 两种 -->
+
+<!-- 直接使用指令, 但是cdkPortal需要放在ng-template里  let-nameInTemplate="nameInObject" 相当于 let nameInTemplate = context.nameInObject -->
+<ng-template cdkPortal let-nameInTemplate="nameInObject">
+    <p>我是放在ng-template标签里的，使用cdkPortal指令进行声明～🎉 ➡️ ✅</p>
+    <p>接收到参数: {{ nameInTemplate }}</p>
+</ng-template>

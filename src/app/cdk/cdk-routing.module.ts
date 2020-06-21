@@ -12,6 +12,7 @@ import { CopyComponent } from './clipboard/clipboard/copycomponent';
 import { BreakPointComponent } from './layout/break-point/break-point.component';
 import { TemplatePortalComponent } from './portal/template-portal/template-portal.component';
 import { ComponentPortalComponent } from './portal/component-portal/component-portal.component';
+import { DomPortalComponent } from './portal/dom-portal/dom-portal.component';
 
 const routes: Routes = [
   { path: '', component: CdkComponent },
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'layout-break-point', component: BreakPointComponent },
   { path: 'portal-template', component: TemplatePortalComponent },
   { path: 'portal-component', component: ComponentPortalComponent },
+  { path: 'portal-dom', component: DomPortalComponent },
 ];
 
 @NgModule({
