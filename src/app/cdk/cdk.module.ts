@@ -14,6 +14,7 @@ import { BreakPointComponent } from './layout/break-point/break-point.component'
 import { TemplatePortalComponent } from './portal/template-portal/template-portal.component';
 import { ComponentPortalComponent } from './portal/component-portal/component-portal.component';
 import { DomPortalComponent } from './portal/dom-portal/dom-portal.component';
+import { ConnectdToComponent } from './overlay/connectd-to/connectd-to.component';
 
 
 
@@ -32,7 +33,8 @@ import { DomPortalComponent } from './portal/dom-portal/dom-portal.component';
     BreakPointComponent,
     TemplatePortalComponent,
     ComponentPortalComponent,
-    DomPortalComponent
+    DomPortalComponent,
+    ConnectdToComponent
   ],
   imports: [
     CoreModule,

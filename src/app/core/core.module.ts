@@ -12,6 +12,7 @@ import { PortalModule } from '@angular/cdk/portal';
 import { MatListModule } from '@angular/material/list';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
     declarations: [
@@ -30,7 +31,8 @@ import { MatButtonModule } from '@angular/material/button';
         // Material
         MatListModule,
         MatSelectModule,
-        MatButtonModule
+        MatButtonModule,
+        MatIconModule
     ],
     exports: [
         CommonModule,
@@ -46,7 +48,8 @@ import { MatButtonModule } from '@angular/material/button';
         PortalModule,
         // Material
         MatSelectModule,
-        MatButtonModule
+        MatButtonModule,
+        MatIconModule
     ],
     providers: [],
 })

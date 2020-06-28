@@ -1,0 +1,12 @@
+<button mat-fab color="primary" class="float-menu" (click)="displayMenu()" #originFab>
+    <mat-icon>add</mat-icon>
+</button>
+
+<ng-template #overlayMenuList>
+    <div class="fab-menu-panel">
+        <mat-nav-list>
+            <mat-list-item>新增邮件</mat-list-item>
+            <mat-list-item>管理联系人</mat-list-item>
+        </mat-nav-list>
+    </div>
+</ng-template>
