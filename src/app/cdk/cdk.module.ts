@@ -15,6 +15,7 @@ import { TemplatePortalComponent } from './portal/template-portal/template-porta
 import { ComponentPortalComponent } from './portal/component-portal/component-portal.component';
 import { DomPortalComponent } from './portal/dom-portal/dom-portal.component';
 import { ConnectdToComponent } from './overlay/connectd-to/connectd-to.component';
+import { CoerceComponent, CoerceChildrenComponent } from './coerce/coerce/coerce.component';
 
 
 
@@ -34,7 +35,9 @@ import { ConnectdToComponent } from './overlay/connectd-to/connectd-to.component
     TemplatePortalComponent,
     ComponentPortalComponent,
     DomPortalComponent,
-    ConnectdToComponent
+    ConnectdToComponent,
+    CoerceComponent,
+    CoerceChildrenComponent
   ],
   imports: [
     CoreModule,
