@@ -10,7 +10,11 @@
         <p>Is Edge👉：{{ platform.EDGE }}</p>
         <p>Is Safari👉：{{ platform.SAFARI }}</p>
         <p>IS Browser👉：{{ platform.isBrowser }}</p>
-        <p>Supported input types👉：{{ supportedInputTypes }}</p>
+        <div>Supported input types👇：
+            <ul>
+                <li *ngFor="let type of supportedInputTypes">{{ type }}</li>
+            </ul>
+        </div>
         <p>Supports passive event listeners👉：{{ supportsPassiveEventListeners }}</p>
         <p>Supports scroll behavior👉：{{ supportsScrollBehavior }}</p>
         <p>Supports rtl scroll axis type👉：{{ supportRtlScrollAxisType }}</p>
