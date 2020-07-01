@@ -8,6 +8,7 @@ import { A11yModule } from '@angular/cdk/a11y';
 import { BidiModule } from '@angular/cdk/bidi';
 import { ClipboardModule } from '@angular/cdk/clipboard';
 import { PortalModule } from '@angular/cdk/portal';
+import { PlatformModule } from '@angular/cdk/platform';
 // Material
 import { MatListModule } from '@angular/material/list';
 import { MatSelectModule } from '@angular/material/select';
@@ -28,6 +29,7 @@ import { MatIconModule } from '@angular/material/icon';
         BidiModule,
         ClipboardModule,
         PortalModule,
+        PlatformModule,
         // Material
         MatListModule,
         MatSelectModule,
@@ -46,6 +48,7 @@ import { MatIconModule } from '@angular/material/icon';
         MatListModule,
         ClipboardModule,
         PortalModule,
+        PlatformModule,
         // Material
         MatSelectModule,
         MatButtonModule,

@@ -16,6 +16,7 @@ import { ComponentPortalComponent } from './portal/component-portal/component-po
 import { DomPortalComponent } from './portal/dom-portal/dom-portal.component';
 import { ConnectdToComponent } from './overlay/connectd-to/connectd-to.component';
 import { CoerceComponent, CoerceChildrenComponent } from './coerce/coerce/coerce.component';
+import { PlatformComponent } from './platform/platform/platform.component';
 
 
 
@@ -37,7 +38,8 @@ import { CoerceComponent, CoerceChildrenComponent } from './coerce/coerce/coerce
     DomPortalComponent,
     ConnectdToComponent,
     CoerceComponent,
-    CoerceChildrenComponent
+    CoerceChildrenComponent,
+    PlatformComponent
   ],
   imports: [
     CoreModule,

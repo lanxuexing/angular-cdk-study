@@ -15,6 +15,7 @@ import { ComponentPortalComponent } from './portal/component-portal/component-po
 import { DomPortalComponent } from './portal/dom-portal/dom-portal.component';
 import { ConnectdToComponent } from './overlay/connectd-to/connectd-to.component';
 import { CoerceComponent } from './coerce/coerce/coerce.component';
+import { PlatformComponent } from './platform/platform/platform.component';
 
 const routes: Routes = [
   { path: '', component: CdkComponent },
@@ -31,6 +32,7 @@ const routes: Routes = [
   { path: 'portal-dom', component: DomPortalComponent },
   { path: 'overlay-connectd-to', component: ConnectdToComponent },
   { path: 'coerce', component: CoerceComponent },
+  { path: 'platform', component: PlatformComponent },
 ];
 
 @NgModule({
