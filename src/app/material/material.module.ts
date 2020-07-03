@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CoreModule } from '../core/core.module';
 
 import { MaterialRoutingModule } from './material-routing.module';
 import { MaterialComponent } from './material.component';
@@ -7,9 +7,12 @@ import { IconComponent } from './icon/icon.component';
 
 
 @NgModule({
-  declarations: [MaterialComponent, IconComponent],
+  declarations: [
+    MaterialComponent,
+    IconComponent
+  ],
   imports: [
-    CommonModule,
+    CoreModule,
     MaterialRoutingModule
   ]
 })
